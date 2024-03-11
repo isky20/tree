@@ -10,9 +10,9 @@ library(ggtreeExtra)
 ## Genes
 ## Term
 
-tree_string_simple <- function(Table_S6.csv, size, offset) {
+tree_string_simple <- function(Table_S6.csv, rmove.from.title, size, offset) {
   #OPEN FILE
-  title <- gsub("_list _enriched.csv", "",Table_S6.csv )
+  title <- gsub( rmove.from.title, "",Table_S6.csv ) 
   ref <- read.csv(Table_S6.csv)
   #select top2 fold enrichment
   df <- ref %>% 
@@ -53,8 +53,8 @@ tree_string_simple <- function(Table_S6.csv, size, offset) {
 
 
 #run the code with many input file
-csv_files <- list.files(pattern = "_enriched.csv")
+csv_files <- list.files(pattern = "_enriched.csv") #select the 
 for(i in csv_files) {
-  tree_string_simple(i,5,3)
+  tree_string_simple(i,"_list _enriched.csv",5,3)
   
 }
