@@ -55,6 +55,6 @@ tree_string_simple <- function(Table_S6.csv, rmove.from.title, size, offset) {
 #run the code with many input file
 csv_files <- list.files(pattern = "_enriched.csv") #select the 
 for(i in csv_files) {
-  tree_string_simple(i,"_list _enriched.csv",5,3)
+  tree_string_simple(i,"COMPARTMENTS.csv",5,3)
   
 }
