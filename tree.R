@@ -6,7 +6,7 @@ library(gridExtra)
 library(ggtreeExtra)
 library(svglite)
 
-tree <- function(df, table_name,n = 10, off= 1.5) { 
+tree <- function(df, table_name,n = 10) { 
   # Loop through each column starting with 'score'
   for (col_name in names(df)[startsWith(names(df), "score")]) {
     # Select the column and 'other_column'
@@ -46,7 +46,7 @@ tree <- function(df, table_name,n = 10, off= 1.5) {
     newick <- as.phylo(dendrogram_object)
     # make dendrogram
     p1 <- ggtree(newick, branch.length="none", layout="circular",open.angle=15)  + 
-      geom_tiplab(align=TRUE, linesize = 0, size = 5, offset = off) + ggtitle(col_name)+
+      geom_tiplab(align=TRUE, linesize = 0, size = 5, offset = 1.5) + ggtitle(col_name)+
       theme(plot.title = element_text(hjust = 0))+ xlim(0, 50) +
       theme(plot.margin = margin(1, 1, 1, 1, "in"))
     
