@@ -61,7 +61,8 @@ tree <- function(df, table_name,n = 10) {
           hjust      = 0,
           vjust      = 0.70,
           line.size = 0.2, line.alpha = 1.2),
-        grid.params=list()
+        grid.params=list()for (table_name in table_names) {
+  table_summary <- CoPPI_results$resultsCoPPI[[table_name]]$table_summary
       ) 
     
     
@@ -70,9 +71,5 @@ tree <- function(df, table_name,n = 10) {
   }
 }
 
-table_names <- names(CoPPI_results$resultsCoPPI)
 
-for (table_name in table_names) {
-  table_summary <- CoPPI_results$resultsCoPPI[[table_name]]$table_summary
-  tree(table_summary,table_name, 10,2)
-}
+tree(dataframe,name.output.svg, 10,2)
